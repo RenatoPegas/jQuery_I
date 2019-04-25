@@ -1,0 +1,26 @@
+.sentence{
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.character-field{
+    font-size: 1.2em;
+    height: 150px;
+    border: 3px solid black;
+}
+
+.character-field-disable{
+    background-color: lightgray;
+}
+
+.icons{
+    vertical-align: middle;
+}
+
+.correct-border{
+    border: 3px solid green;
+}
+
+.error-border{
+    border: 3px solid red;
+}

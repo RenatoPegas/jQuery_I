@@ -4,29 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Alura Typer</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/libs/google-fonts.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+    <div class='container'>
+        <h1 class='center'>Alura Typer</h1>
 
-    <h1>Alura Typer</h1>
+        <p class='sentence center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        
+        <ul class='info center'>
+            <li>
+                <i class='small material-icons icons'>description</i>
+                <spam id='size-number'>30</spam> words
+            </li>
+            <li>
+                <i class='small material-icons icons'>query_builder</i>
+                <span id='game-count'>10</span> seconds
+            </li>
+        </ul>
 
-    <p class='sentence'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-     
-    <ul class='info'>
-        <li><spam id='size-number'>30</spam> words</li>
-        <li><span id='game-count'>10</span> seconds</li>
-    </ul>
+        <textarea class='character-field' id="" cols="30" rows="10"></textarea>
+        
+        <div class='buttons'>
+            <a class="btn-floating btn-large waves-effect waves-light red" id="btn-restart"><i class="material-icons">restore</i></a>
+        </div>
+        
+        <!-- <button id="btn-restart">Restart Game</button> -->
 
-    <textarea class='character-field' id="" cols="30" rows="10"></textarea>
-    <button id="btn-restart">Restart Game</button>
-
-    <ul>
-        <li><span id='character-count'>0</span> characters</li>
-        <li><span id='word-count'>0</span> words</li>
-    </ul>
+        <ul class='center'>
+            <li><span id='character-count'>0</span> characters</li>
+            <li><span id='word-count'>0</span> words</li>
+        </ul>
+    </div>
 
     <script src='js/jquery.js'></script>
     <script src='js/main.js'></script>
