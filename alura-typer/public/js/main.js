@@ -45,15 +45,21 @@ function initializeCronometer() {                   //function of game count
          gameTime--;
          $('#game-count').text(gameTime);
          if (gameTime < 1) {
-            field.attr('disabled', true);
             clearInterval(chonometerID);
-            field.addClass('character-field-disable');
-            $("#btn-restart").attr("disabled", false); //able chronometer
+            finalizeGame();
          }
       }, 1000);
 
    });
 }
+
+function finalizeGame(){
+   field.attr('disabled', true);
+   field.addClass('character-field-disable');
+   $("#btn-restart").attr("disabled", false); //able chronometer
+   scoreInsert();
+}
+
 function initializeMark(){
 
    var sentence = $('.sentence').text();
@@ -72,6 +78,20 @@ function initializeMark(){
       }
 
    });
+}
+
+function scoreInsert(){
+    
+   var tableBody = $('.score').find('tbody');
+   var user = 'Renato';
+   var wordNumber = $('#word-count').text();
+   var line = '<tr>' +
+                  '<td>' + user + '</td>' +
+                  '<td>' + wordNumber + '</td>' +
+              '</tr>';
+   
+   tableBody.append(line);           
+
 }
 
 function restartGame() {
