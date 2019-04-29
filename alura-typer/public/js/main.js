@@ -85,14 +85,22 @@ function scoreInsert(){
    var tableBody = $('.score').find('tbody');
    var user = 'Renato';
    var wordNumber = $('#word-count').text();
+   var removeButton = '<a href="#"><i class="material-icons">delete</i></a>';
+
    var line = '<tr>' +
                   '<td>' + user + '</td>' +
                   '<td>' + wordNumber + '</td>' +
+                  '<td>' + removeButton + '</td>' +
               '</tr>';
    
    tableBody.append(line);           
 
 }
+
+$(".remove-button").click(function(event){  
+   event.preventDefault();                             //stop default events on page
+   $(this).parent().parent().remove();                 //envolve the element in jQuery
+});
 
 function restartGame() {
    field.attr('disabled', false);
