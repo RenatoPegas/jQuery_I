@@ -15,7 +15,6 @@ function updateWordSize() {
    var wordNumber = word.split(/\S+/).length;       //split function separate the string by parameter inserted
    var wordSize = $('#size-number');                //alloc the length
    wordSize.text(wordNumber);                       //show length of sentence
-
 }
 
 function initializeCounts() {
@@ -29,7 +28,6 @@ function initializeCounts() {
 
       var words = content.split(/\S+/).length - 1;  // /\S+/ = RegEx
       $('#word-count').text(words);
-
    });
 }
 
@@ -49,7 +47,25 @@ function initializeCronometer() {                   //function of game count
             finalizeGame();
          }
       }, 1000);
+   });
+}
 
+function initializeMark() {
+
+   var sentence = $('.sentence').text();
+
+   field.on('input', function () {
+
+      var textValue = field.val();
+      var compare = sentence.substr(0, textValue.length);     //compare with a part of sentence 
+
+      if (textValue == compare) {
+         field.addClass('correct-border');
+         field.removeClass('error-border');
+      } else {
+         field.addClass('error-border');
+         field.removeClass('correct-border');
+      }
    });
 }
 
@@ -59,48 +75,6 @@ function finalizeGame(){
    $("#btn-restart").attr("disabled", false); //able chronometer
    scoreInsert();
 }
-
-function initializeMark(){
-
-   var sentence = $('.sentence').text();
-
-   field.on('input', function(){
-
-      var textValue = field.val();
-      var compare = sentence.substr(0, textValue.length);     //compare with a part of sentence 
-      
-      if(textValue == compare){
-         field.addClass('correct-border');
-         field.removeClass('error-border');
-      }else{
-         field.addClass('error-border');
-         field.removeClass('correct-border');
-      }
-
-   });
-}
-
-function scoreInsert(){
-    
-   var tableBody = $('.score').find('tbody');
-   var user = 'Renato';
-   var wordNumber = $('#word-count').text();
-   var removeButton = '<a href="#"><i class="material-icons">delete</i></a>';
-
-   var line = '<tr>' +
-                  '<td>' + user + '</td>' +
-                  '<td>' + wordNumber + '</td>' +
-                  '<td>' + removeButton + '</td>' +
-              '</tr>';
-   
-   tableBody.append(line);           
-
-}
-
-$(".remove-button").click(function(event){  
-   event.preventDefault();                             //stop default events on page
-   $(this).parent().parent().remove();                 //envolve the element in jQuery
-});
 
 function restartGame() {
    field.attr('disabled', false);
@@ -114,7 +88,3 @@ function restartGame() {
    field.removeClass('correct-border');
    field.removeClass('error-border');
 }
-
-
-
-// console.log();
